@@ -24,13 +24,19 @@ const Cart = () => {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      const items = res.data.data.items.map((item) => ({
-        id: item.productId._id,
-        name: item.productId.productName,
-        price: item.productId.productPrice,
-        quantity: item.quantity,
-        image: `http://localhost:5000/uploads/${item.productId.productImage}`,
-      }));
+
+      // Safely filter and map items
+      const items =
+        res.data?.data?.items
+          ?.filter((item) => item.productId) // remove items with null productId
+          .map((item) => ({
+            id: item.productId._id,
+            name: item.productId.productName,
+            price: item.productId.productPrice,
+            quantity: item.quantity,
+            image: `http://localhost:5000/uploads/${item.productId.productImage}`,
+          })) || [];
+
       setCartItems(items);
     } catch (error) {
       console.error("Failed to load cart:", error);

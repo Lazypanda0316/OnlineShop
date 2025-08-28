@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Login from "./components/Login/Login";
@@ -32,7 +32,6 @@ import HomeAni from "./pages/HomeAni/HomeAni";
 import Home from "./pages/Home/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
 
@@ -85,24 +84,54 @@ function App() {
           />
 
           <Route path="/custom" element={<CustomHeader />} />
-          <Route path="/addproducts" element={<PrivateRoute userRole={user?.role}>
+          <Route
+            path="/addproducts"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <AddProducts />
-              </PrivateRoute>} />
-          <Route path="/user" element={ <PrivateRoute userRole={user?.role}>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <User />
-              </PrivateRoute>} />
-          <Route path="/settings" element={<PrivateRoute userRole={user?.role}>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <Settings />
-              </PrivateRoute>} />
-          <Route path="/editProduct/:id" element={<PrivateRoute userRole={user?.role}>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/editProduct/:id"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <EditProduct />
-              </PrivateRoute>} />
-          <Route path="/editProduct" element={<PrivateRoute userRole={user?.role}>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/editProduct"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <EditProduct />
-              </PrivateRoute>} />
-          <Route path="/EditProductlist" element={<PrivateRoute userRole={user?.role}>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/EditProductlist"
+            element={
+              <PrivateRoute userRole={user?.role}>
                 <EditProductList />
-              </PrivateRoute>} />
+              </PrivateRoute>
+            }
+          />
           <Route path="/product/:id" element={<PurchasePage />} />
 
           <Route path="/purchseProducts" element={<PurchasePage />} />
@@ -112,7 +141,7 @@ function App() {
           <Route path="/carousel" element={<Carousel />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/item" element={<ItemCard />} />
-          <Route path="/homeani" element={<HomeAni/>}/>
+          <Route path="/homeani" element={<HomeAni />} />
           <Route path="/footer" element={<Footer />} />
 
           <Route path="*" element={<PageNotFound />} />

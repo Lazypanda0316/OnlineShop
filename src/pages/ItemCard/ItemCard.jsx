@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom"; // ✅ Added this line
-import bc from "../../assets/images/bc.jpg";
-import bc2 from "../../assets/images/bc2.jpg";
+import bc from "../../assets/images/bc3.webp";
+import bc2 from "../../assets/images/wall3.jpg";
 
 const images = [bc, bc2, bc, bc2, bc];
 

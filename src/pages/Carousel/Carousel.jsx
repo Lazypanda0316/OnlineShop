@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import img from "../../assets/images/logo.png";
 import img2 from "../../assets/images/wall3.jpg";
-import img3 from "../../assets/images/bc.jpg";
-import img4 from "../../assets/images/bc2.jpg";
+import img3 from "../../assets/images/wall3.jpg";
+import img4 from "../../assets/images/bc3.webp";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const images = [img, img2, img3, img4];
